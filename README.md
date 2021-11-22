@@ -319,8 +319,10 @@ String[] selectionArgs = { "%"+newText+"%" };
 ```
 android:theme="@android:style/Theme.Holo.Light"
 ```
-改变后如下图：<br>
-![main](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/main.png)<br>
+改变后如下图：
+
+![image](https://user-images.githubusercontent.com/82015926/142830856-dc0c3d4a-9554-4129-a5e8-241af14d8d56.png)
+
 UI美化主要是让NotesList和NoteSearch每条笔记都有背景色，并且能保存。要做到保存颜色的数据，最直接的办法就是在数据库中添加一个颜色的字段，在这之前在NotePad契约类中添加：<br>
 ```
 public static final String COLUMN_NAME_BACK_COLOR = "color";
@@ -424,10 +426,13 @@ adapter = new MyCursorAdapter(
     );
 ```
 由于目前为止并没有设置颜色的选项，所以创建的笔记都是白色背景的，但是结合下一个功能，背景更换，**让编辑笔记时的背景色跟笔记列表的该笔记背景色同为一种颜色。**<br>
-白色：<br>
-![time2](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/time2.png)<br>
-与背景结合彩色：<br>
-![listcolor](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/listcolor.png)<br>
+白色：
+
+![image](https://user-images.githubusercontent.com/82015926/142830994-ad0198ec-d326-4b75-89c5-1a5775522e59.png)
+
+与背景结合彩色：
+
+![image](https://user-images.githubusercontent.com/82015926/142831070-c702455d-2359-4bc6-a10b-f29b7602f409.png)
 
 - 背景更换
 
@@ -610,16 +615,25 @@ public class NoteColor extends Activity {
     android:windowSoftInputMode="stateVisible"/>
 ```
 因为选择颜色就会响应对应的函数，而函数先将选择的颜色信息保存在color变量中，调用finish()后会执行onPause()，在onPause()中将颜色存入数据库，Activity从NoteColor回到NoteEditor，NoteEditor被唤醒，会调用NoteEditor的onResume()，onResume()中有读取数据库颜色信息将设置背景的操作，就达到了换背景色的作用，并且也达到了NoteList中笔记颜色更改与编辑背景一致的效果。
-修改笔记一的背景色：<br>
-![changecolornote](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/changecolornote1.png)<br>
-选择菜单上的衣服图标：<br>
-![choicecolor](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/choicecolor.png)<br>
-选择蓝色：<br>
-![background](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/background.png)<br>
-返回列表：<br>
-![changecolornote](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/changecolornote2.png)<br>
-动图效果：<br>
-![changecolor.gif](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/GIF2.gif)<br>
+修改笔记一的背景色：
+
+![image](https://user-images.githubusercontent.com/82015926/142831160-360c9f76-faf4-480d-8a1e-8f990ccbc91b.png)
+
+选择菜单上的衣服图标：
+
+![image](https://user-images.githubusercontent.com/82015926/142831281-73b6a2ac-676e-4987-9192-5ad61155c7d3.png)
+
+选择蓝色：
+
+![image](https://user-images.githubusercontent.com/82015926/142831368-691f5346-8966-42da-a4c2-2128aeb8cf69.png)
+
+返回列表：
+
+![image](https://user-images.githubusercontent.com/82015926/142831472-a6abe082-3a1f-4d2d-b4b1-172f218777b8.png)
+
+动图效果：
+
+![改背景](https://user-images.githubusercontent.com/82015926/142831839-9a46d073-0226-436e-b6bc-f4b3dd40b0b5.gif)
 
 - 导出笔记
 
@@ -787,33 +801,59 @@ public class OutputText extends Activity {
 注解在代码注释部分，这里主要说明下flag作用和文件导出位置以及在写文件操作时关于sdcard路径的一些现象。<br>
 因为导出文件是写在onPause()中的，点击保存响应的函数里调用了finish()，而onPause()会在finish()之后调用，但是，onPause()在点击手机的返回键退出当前activity也会调用，也就是说，如果没有经过特殊处理，点击手机返回键也会进行导出文件，这与预想不符。所以特别设置了一个flag用于判断是否是点击导出按钮，是点击按钮，则flag设置为true，可以进行文件导出，否则flag为默认的false，判断语句为假，不能执行到导出文件的操作。<br>
 在拓展的导出文件功能中，我导出文件的路径设定为sdcard下。模拟器中确实导到sdcard目录下，但是手机却是到在内部存储里。我个人猜测下，我手机的存储分为内部存储设备和SD卡(内部存储设备可用的大概为二十几G，SD卡为十几G)，是不是内部存储设备算是被焊死在手机里的SD卡，再联想到以前用的安卓手机，内部根本没用什么存储空间，由SD卡来扩展，如今是机身自带大容量存储空间，所以本应用放在我的手机上读的路径就成了内部存储的路径？<br>
-笔记中有三条笔记：<br>
-![outputnotelist](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/outputnotelist.png)<br>
-点击第三条“楼五四”：<br>
-![note1](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/note1.png)<br>
-点击隐藏的菜单，选择导出笔记：<br>
- ![outputmenu](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/outputmenu.png)<br>
-文件名默认为标题，也可自己取名，点击确认导出：<br>
-![name1](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/name1.png)<br>
-保存成功，弹出提示：<br>
-![outputok1](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/outputok1.png)<br>
-到文件管理器查看文件：<br>
-![file1](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/file1.png)<br>
-点击刚导出的文件，用阅读器打开查看内容：<br>
-![txt1](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/txt1.png)<br>
-回到NotePad，进入笔记：<br>
-![note2](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/note2.png)<br>
-按刚才的步骤重复一遍：<br>
-![name2](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/name2.png)<br>
-![outputok2](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/outputok2.png)<br>
-![file2](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/file2.png)<br>
-![txt2](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/txt2.png)<br>
-把最后一条笔记也导出：<br>
-![note3](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/note3.png)<br>
-![name3](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/name3.png)<br>
-![outputok3](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/outputok3.png)<br>
-![file3](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/file3.png)<br>
-![txt3](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/txt3.png)<br>
+笔记中有三条笔记：
+
+![image](https://user-images.githubusercontent.com/82015926/142833459-2f844228-fec8-485e-a68a-1c96b277b331.png)
+
+点击第三条“the three problem”;
+
+![image](https://user-images.githubusercontent.com/82015926/142833619-a960da4d-8157-4d2b-b182-797215507961.png)
+
+点击隐藏的菜单，选择导出笔记：
+
+![image](https://user-images.githubusercontent.com/82015926/142833706-6cccd5ea-584e-45d5-8560-b5d60ae26607.png)
+
+文件名默认为标题，也可自己取名，点击确认导出：
+
+![image](https://user-images.githubusercontent.com/82015926/142833989-f3683c36-5c20-4fbe-b0ab-58e9264754da.png)
+
+保存成功，弹出提示：
+
+![image](https://user-images.githubusercontent.com/82015926/142834054-33765ca9-f5c6-4de5-b1ff-c56ad1496e87.png)
+
+到文件管理器查看文件：
+
+![image](https://user-images.githubusercontent.com/82015926/142835030-cbc8b15c-a2b0-437d-b2e4-ab574b4554ca.png)
+
+点击刚导出的文件，用阅读器打开查看内容：
+
+![image](https://user-images.githubusercontent.com/82015926/142835162-eef4d5d5-e965-479f-a5d6-d3c018ce78d9.png)
+
+回到NotePad，进入笔记：
+
+![image](https://user-images.githubusercontent.com/82015926/142835393-866e0262-c8f4-4b41-8ed9-33045895789b.png)
+
+按刚才的步骤重复一遍：
+
+![image](https://user-images.githubusercontent.com/82015926/142835440-49e92115-d46d-4cba-b456-d2133b7ffff5.png)
+
+![image](https://user-images.githubusercontent.com/82015926/142835526-ad86f5a0-0f38-4b58-87db-47802888c18e.png)
+
+![image](https://user-images.githubusercontent.com/82015926/142835601-41510bff-2f88-4c31-9f3c-1f7e7c8b2cb1.png)
+
+![image](https://user-images.githubusercontent.com/82015926/142835660-57bf3ac5-5ade-44ea-8a6c-4966ba2d1534.png)
+
+把最后一条笔记也导出：
+
+![image](https://user-images.githubusercontent.com/82015926/142835763-b7974936-3656-4333-bcd2-cde7af5c788f.png)
+
+![image](https://user-images.githubusercontent.com/82015926/142835824-bc34881c-2e15-4081-bb66-e0d1a02c3aca.png)
+
+![image](https://user-images.githubusercontent.com/82015926/142835883-36fb0d2e-bcf3-479a-8897-ea7ef8841201.png)
+
+![image](https://user-images.githubusercontent.com/82015926/142835940-d357fe78-ba21-4870-ba0b-00c92e8b8ff0.png)
+
+![image](https://user-images.githubusercontent.com/82015926/142835986-b221e8e1-f2ca-40f5-816b-f381ca38d427.png)
 
 - 笔记排序
 
@@ -901,16 +941,23 @@ private Cursor cursor;
 private String[] dataColumns = { NotePad.Notes.COLUMN_NAME_TITLE ,  NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE } ;
 private int[] viewIDs = { android.R.id.text1 , R.id.text1_time };
 ```
-菜单：<br>
-![sortmenu](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/sortmenu.png)<br>
-创建时间排序：<br>
-![createtime](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/createtime.png)<br>
-修改时间排序：<br>
-![modifytime](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/modifytime.png)<br>
-颜色排序：<br>
-![colorsort](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/colorsort.png)<br>
+菜单：
+
+![image](https://user-images.githubusercontent.com/82015926/142836421-7ab015e4-4e9d-4900-8492-9b2213f248af.png)
+
+创建时间排序：
+
+![image](https://user-images.githubusercontent.com/82015926/142836463-6adbc8fb-1b92-4ced-acea-06d219fb9413.png)
+
+修改时间排序：
+
+![image](https://user-images.githubusercontent.com/82015926/142836511-47f08b0f-e9fe-431d-b827-223e05c0eba2.png)
+
+颜色排序：
+
+![image](https://user-images.githubusercontent.com/82015926/142836635-9eb1995d-7274-4198-a0bb-d0da858c64be.png)
 
 - 扩展后的目录结构
 
-![dirstructure1](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/dirstructure1.png)<br>
-![dirstructure2](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/dirstructure2.png)<br>
+![image](https://user-images.githubusercontent.com/82015926/142836747-08a485b4-4ff4-4810-b985-d6700048bf00.png)
+
