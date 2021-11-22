@@ -151,8 +151,9 @@ String dateTime = format.format(date);
 
 ![image](https://user-images.githubusercontent.com/82015926/142827316-3207ae80-4f77-422e-9cd2-70f678fdde6c.png)
 
-修改第一条笔记：<br>
-![time3](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/time3.png)<br>
+修改第一条笔记：
+
+![image](https://user-images.githubusercontent.com/82015926/142827565-d40a7da0-59e8-459c-9d1e-2f32a788d2f7.png)
 
 - 笔记查询（按标题查询）
 
@@ -174,8 +175,10 @@ String dateTime = format.format(date);
     NotesList.this.startActivity(intent);
     return true;
 ```
-菜单：<br>
-![searchmenu](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/searchmenu.png)<br>
+菜单：
+
+![image](https://user-images.githubusercontent.com/82015926/142827756-b7bcdeec-9563-4415-a3f5-407a580bfa94.png)
+
 在case语句中写跳转activity代码之前要先写好搜索的activity，新建一个名为NoteSearch的activity。由于搜索出来的也是笔记列表，所以可以模仿NotesList的activity继承ListActivity。在安卓中有个用于搜索控件：SearchView，可以把**SearchView跟ListView相结合**，**动态地显示搜索结果**。先布局搜索页面，在layout中新建布局文件note_search_list.xml：<br>
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -285,17 +288,27 @@ String[] selectionArgs = { "%"+newText+"%" };
         android:label="@string/title_notes_search">
     </activity>
 ```
-笔记列表：<br>
-![notelist](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/notelist.png)<br>
-搜索界面：<br>
-![searchui](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/searchui.png)<br>
+笔记列表：
+
+![image](https://user-images.githubusercontent.com/82015926/142828143-b948ae31-d266-4001-b6fa-1f8a7f302019.png)
+
+搜索界面：
+
+![image](https://user-images.githubusercontent.com/82015926/142828210-dee14f7e-d99f-4dcf-818c-1e5bd818fe83.png)
+
 搜索结果：<br>
-1：<br>
-![search](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/search1.png)<br>
-2：<br>
-![search](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/search2.png)<br>
-3：<br>
-![search](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/search3.png)<br>
+1：
+
+![image](https://user-images.githubusercontent.com/82015926/142828251-67e970ef-5e14-4da3-b7bf-2eebd03a8028.png)
+
+2：
+
+![image](https://user-images.githubusercontent.com/82015926/142828317-37e24866-dbb6-4017-b3a5-f9980572197b.png)
+
+3：
+
+![image](https://user-images.githubusercontent.com/82015926/142828352-febe850d-06f6-4189-afe3-3000c15f7593.png)
+
 搜索动图效果：<br>
 ![search.gif](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/GIF.gif)<br>
 
