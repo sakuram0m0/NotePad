@@ -309,8 +309,9 @@ String[] selectionArgs = { "%"+newText+"%" };
 
 ![image](https://user-images.githubusercontent.com/82015926/142828352-febe850d-06f6-4189-afe3-3000c15f7593.png)
 
-搜索动图效果：<br>
-![search.gif](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/GIF.gif)<br>
+搜索动图效果：
+
+![搜索](https://user-images.githubusercontent.com/82015926/142830161-45f27716-c1f0-4022-890b-bd0befb8bb5c.gif)
 
 - UI美化
 
