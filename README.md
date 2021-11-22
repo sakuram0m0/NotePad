@@ -148,7 +148,9 @@ String dateTime = format.format(date);
 ```
 运行效果（修改主题后，界面颜色与之前不一样，下文会提到）：<br>
 添加两条笔记：
+
 ![image](https://user-images.githubusercontent.com/82015926/142827316-3207ae80-4f77-422e-9cd2-70f678fdde6c.png)
+
 修改第一条笔记：<br>
 ![time3](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/time3.png)<br>
 
