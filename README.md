@@ -1,20 +1,34 @@
 ﻿# 期中实验-基于NotePad应用的功能扩展
 ---
 ## 原应用展示
-图1：NotePad主界面<br>
-![NotePadMain](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/NotePadMain.png)<br>
-图2：新建笔记<br>
-![NewNoteEdit](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/NewNoteEdit.png)<br>
-图3：新建笔记退回主页面<br>
-![NewNoteList](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/NewNoteList.png)<br>
-图4：进入笔记，编辑标题菜单<br>
-![EditTitle](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/EditTitle.png)<br>
-图5：编辑标题<br>
-![EditTitleDialog](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/EditTileDialog.png)<br>
-图6：笔记列表<br>
-![moreNotes](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/moreNotes.png)<br>
-图7：长点“第二条笔记”，菜单<br>
-![menu](https://raw.githubusercontent.com/douerza/picture/master/NotePadPic/menu.png)<br>
+图1：NotePad主界面
+
+![NotePadMain](https://user-images.githubusercontent.com/82015926/142859855-dd96df61-4997-47a7-812f-21426d35031e.png)
+
+图2：新建笔记
+
+![NewNoteEdit](https://user-images.githubusercontent.com/82015926/142859941-834033d5-7d65-4700-a8a9-56cbf46e8834.png)
+
+图3：新建笔记退回主页面
+
+![NewNoteList](https://user-images.githubusercontent.com/82015926/142859985-bd95c2bb-5f20-4ba9-b753-8ed6e67c0c64.png)
+
+图4：进入笔记，编辑标题菜单
+
+![NewNoteEdit](https://user-images.githubusercontent.com/82015926/142860004-a01f2756-a5cc-4da7-b16b-caccdb93a89a.png)
+
+图5：编辑标题
+
+![EditTileDialog](https://user-images.githubusercontent.com/82015926/142860063-70187446-8dd8-4f0e-bbd9-3ac5ad3024ec.png)
+
+图6：笔记列表
+
+![moreNotes](https://user-images.githubusercontent.com/82015926/142860110-1c80312b-f43c-4223-bb38-a88e32e246a8.png)
+
+图7：长点“第二条笔记”，菜单
+
+![menu](https://user-images.githubusercontent.com/82015926/142860154-afcf01f2-d286-446c-a35b-e31363b39696.png)
+
 
 ## 拓展功能
 - NotesList中显示条目增加时间显示
