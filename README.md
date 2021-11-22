@@ -25,7 +25,7 @@
 - 笔记排序
 
 ## 拓展应用源码
-源码： [NotePad](https://github.com/douerza/NotePad/tree/master/NotePad)
+源码： [NotePad](https://github.com/sakuram0m0/NotePad)
 
 ## 拓展功能解析
 
